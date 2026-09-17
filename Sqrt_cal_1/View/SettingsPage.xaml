@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sqrt_cal_1.SettingsPage"
+             Title="SettingsPage">
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Точность вычислений"
+               FontSize="18"
+               FontAttributes="Bold" />
+
+        <Label Text="{Binding Precision, StringFormat='Знаков после запятой: {0}'}"
+               FontSize="16" />
+
+        <Stepper Minimum="0"
+                 Maximum="15"
+                 Increment="1"
+                 Value="{Binding Precision}" />
+
+    </VerticalStackLayout>
+</ContentPage>

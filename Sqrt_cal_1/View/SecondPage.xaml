@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sqrt_cal_1.SecondPage"
+             Title="SecondPage">
+    <FlexLayout Direction="Column">
+        <Entry Text="{Binding UserText1}"
+            Placeholder="Введите степень корня" />
+
+        <Entry Text="{Binding Real}"
+            Placeholder="Введите действительную часть числа" />
+        
+        <Entry Text="{Binding Image}"
+            Placeholder="Введите мнимую часть числа число" />
+
+        <Button Text="Вычислить"
+            Command="{Binding CalculateCommand}" />
+
+        <Label Text="{Binding Title2}" />
+    </FlexLayout>
+
+</ContentPage>

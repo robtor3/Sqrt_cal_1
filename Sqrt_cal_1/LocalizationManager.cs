@@ -23,6 +23,7 @@ namespace Sqrt_cal_1
                 ["Calculate"] = "Вычислить",
                 ["MainTitle"] = "Корень",
                 ["ComplexTitle"] = "Комплексный корень",
+                ["RootLabel"] = "Корень",
             },
             ["en"] = new Dictionary<string, string>
             {
@@ -37,6 +38,7 @@ namespace Sqrt_cal_1
                 ["Calculate"] = "Calculate",
                 ["MainTitle"] = "Root",
                 ["ComplexTitle"] = "Complex root",
+                ["RootLabel"] = "Root",
             }
         };
 

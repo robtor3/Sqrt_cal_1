@@ -21,6 +21,8 @@ namespace Sqrt_cal_1
                 ["SwitchLanguage"] = "Switch to English",
                 ["EnterRootDegree"] = "Введите степень корня",
                 ["Calculate"] = "Вычислить",
+                ["MainTitle"] = "Корень",
+                ["ComplexTitle"] = "Комплексный корень",
             },
             ["en"] = new Dictionary<string, string>
             {
@@ -33,6 +35,8 @@ namespace Sqrt_cal_1
                 ["SwitchLanguage"] = "Переключить на русский",
                 ["EnterRootDegree"] = "Enter root degree",
                 ["Calculate"] = "Calculate",
+                ["MainTitle"] = "Root",
+                ["ComplexTitle"] = "Complex root",
             }
         };
 

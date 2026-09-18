@@ -9,4 +9,8 @@ public partial class SettingsPage : ContentPage
 		InitializeComponent();
         BindingContext = vm;
     }
+    private void OnSwitchLanguageClicked(object sender, EventArgs e)
+    {
+        LocalizationManager.Instance.ToggleLanguage();
+    }
 }

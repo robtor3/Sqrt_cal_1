@@ -1,8 +1,8 @@
-﻿
+﻿using System.ComponentModel;
+using System.Numerics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Sqrt_cal_1.Services;
-using System.Numerics;
 
 namespace Sqrt_cal_1.ViewModels
 {
@@ -10,14 +10,38 @@ namespace Sqrt_cal_1.ViewModels
     {
         private readonly SettingsServices _settings;
 
-        public SecondViewModel(SettingsServices settings)
-        {
-            _settings = settings;
-        }
+        // Память для второй надписи, как и в MainViewModel
+        private string _title2State = "placeholder";
+        private string _title2RawValue = string.Empty;
+
         [ObservableProperty] private string userText1 = string.Empty;
         [ObservableProperty] private string real = string.Empty;
         [ObservableProperty] private string image = string.Empty;
-        [ObservableProperty] private string title2 = "Здесь будет ответ";
+        [ObservableProperty] private string title2 = string.Empty;
+
+        public SecondViewModel(SettingsServices settings)
+        {
+            _settings = settings;
+
+            RefreshLocalizedText();
+            LocalizationManager.Instance.PropertyChanged += OnLanguageChanged;
+        }
+
+        private void OnLanguageChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            RefreshLocalizedText();
+        }
+
+        private void RefreshLocalizedText()
+        {
+            var loc = LocalizationManager.Instance;
+            Title2 = _title2State switch
+            {
+                "placeholder" => loc["AnswerPlaceholder"],
+                "error" => loc["UnknownSymbol"],
+                _ => _title2RawValue
+            };
+        }
 
         [RelayCommand]
         private void Calculate()
@@ -25,24 +49,17 @@ namespace Sqrt_cal_1.ViewModels
             bool okUserText = double.TryParse(real, out double osnovanieReal);
             bool okUserText1 = double.TryParse(image, out double osnovanieImage);
             bool okUserText2 = int.TryParse(UserText1, out int stepen);
-            
-            if (!okUserText)
+
+            if (!okUserText|| !okUserText1|| !okUserText2);
+
             {
-                Title2 = "Неизвестный символ в основании (используйте запятую)";
+                _title2State = "error";
+                Title2 = LocalizationManager.Instance["UnknownSymbol"];
                 return;
             }
-            if (!okUserText1)
-            {
-                Title2 = "Неизвестный символ в основании (используйте запятую)";
-                return;
-            }
-            if (!okUserText2)
-            {
-                Title2 = "Неизвестный символ в основании (используйте запятую)";
-                return;
-            }
+
             var result = new Complex[stepen];
-            
+
             double r = Math.Sqrt(osnovanieReal * osnovanieReal + osnovanieImage * osnovanieImage);
             double theta = Math.Atan2(osnovanieImage, osnovanieReal);
             double rootR = Math.Pow(r, 1.0 / stepen);
@@ -54,18 +71,17 @@ namespace Sqrt_cal_1.ViewModels
                 double im = rootR * Math.Sin(angle);
                 result[k] = new Complex(re, im);
             }
+
             var sb = new System.Text.StringBuilder();
+            string rootLabel = LocalizationManager.Instance["RootLabel"];
             for (int k = 0; k < stepen; k++)
             {
-                sb.AppendLine($"Корень {k + 1}: {_settings.FormatComplex(result[k])}");
+                sb.AppendLine($"{rootLabel} {k + 1}: {_settings.FormatComplex(result[k])}");
             }
-            Title2 = sb.ToString().TrimEnd();
 
-
+            _title2State = "value";
+            _title2RawValue = sb.ToString().TrimEnd();
+            Title2 = _title2RawValue;
         }
-
-
-
     }
-        
 }

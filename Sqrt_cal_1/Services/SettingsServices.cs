@@ -3,7 +3,7 @@ using Sqrt_cal_1.Services;
 using System.Numerics;
 namespace Sqrt_cal_1.Services;
 
-public partial class SettingsServices : ObservableObject // объявляем класс SettingsServices, наследуем ObservableObject чтобы класс мог уведомить подписанные на него компоненты об изменениях в своих свойств
+public partial class SettingsServices : ObservableObject // объявляем класс SettingsServices, наследуем ObservableObject чтобы класс мог уведомить подписанные на него компоненты об изменениях в своих свойствах
 {
     [ObservableProperty]
     private int precision = 2; // поле с точностью по умолчанию

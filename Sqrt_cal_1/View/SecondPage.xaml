@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sqrt_cal_1"
+             xmlns:vm="clr-namespace:Sqrt_cal_1.ViewModels"
              x:Class="Sqrt_cal_1.SecondPage"
-             Title="SecondPage">
+             x:DataType="vm:SecondViewModel"
+             Title="{Binding [ComplexTitle], Source={x:Static local:LocalizationManager.Instance}}">
+
     <FlexLayout Direction="Column">
+
         <Entry Text="{Binding UserText1}"
-            Placeholder="Введите степень корня" />
+               Placeholder="{Binding [EnterRootDegree], Source={x:Static local:LocalizationManager.Instance}}" />
 
         <Entry Text="{Binding Real}"
-            Placeholder="Введите действительную часть числа" />
-        
-        <Entry Text="{Binding Image}"
-            Placeholder="Введите мнимую часть числа число" />
+               Placeholder="{Binding [EnterRealPart], Source={x:Static local:LocalizationManager.Instance}}" />
 
-        <Button Text="Вычислить"
-            Command="{Binding CalculateCommand}" />
+        <Entry Text="{Binding Image}"
+               Placeholder="{Binding [EnterImagePart], Source={x:Static local:LocalizationManager.Instance}}" />
+
+        <Button Text="{Binding [Calculate], Source={x:Static local:LocalizationManager.Instance}}"
+                Command="{Binding CalculateCommand}" />
 
         <Label Text="{Binding Title2}" />
+
     </FlexLayout>
 
 </ContentPage>

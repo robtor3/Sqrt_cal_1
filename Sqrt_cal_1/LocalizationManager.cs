@@ -24,6 +24,8 @@ namespace Sqrt_cal_1
                 ["MainTitle"] = "Корень",
                 ["ComplexTitle"] = "Комплексный корень",
                 ["RootLabel"] = "Корень",
+                ["EnterRealPart"] = "Введите действительную часть числа",
+                ["EnterImagePart"] = "Введите мнимую часть числа",
             },
             ["en"] = new Dictionary<string, string>
             {
@@ -39,6 +41,8 @@ namespace Sqrt_cal_1
                 ["MainTitle"] = "Root",
                 ["ComplexTitle"] = "Complex root",
                 ["RootLabel"] = "Root",
+                ["EnterRealPart"] = "Enter the real part of the number",
+                ["EnterImagePart"] = "Enter the imaginary part of the number",
             }
         };
 

@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sqrt_cal_1.MainPage">
+             xmlns:local="clr-namespace:Sqrt_cal_1"
+             xmlns:vm="clr-namespace:Sqrt_cal_1.ViewModels"
+             x:Class="Sqrt_cal_1.MainPage"
+             x:DataType="vm:MainViewModel">
 
     <FlexLayout Direction="Column">
         <Label Text="{Binding Title1}" />
-        
-        <Entry Text="{Binding UserText1}"
-           Placeholder="Введите степень корня" />
-        
-        <Entry Text="{Binding UserText}"
-           Placeholder="Введите число" />
 
-        <Button Text="Вычислить"
-            Command="{Binding CalculateCommand}" />
+        <Entry Text="{Binding UserText1}"
+               Placeholder="{Binding [EnterRootDegree], Source={x:Static local:LocalizationManager.Instance}}" />
+
+        <Entry Text="{Binding UserText}"
+               Placeholder="{Binding [EnterNumber], Source={x:Static local:LocalizationManager.Instance}}" />
+
+        <Button Text="{Binding [Calculate], Source={x:Static local:LocalizationManager.Instance}}"
+                Command="{Binding CalculateCommand}" />
 
         <Label Text="{Binding Title2}" />
 

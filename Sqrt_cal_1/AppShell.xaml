@@ -7,13 +7,15 @@
     Title="Sqrt_cal_1">
 
     <TabBar>
-        <ShellContent Title="Корень"
+        <ShellContent Title="{Binding [MainTitle], Source={x:Static local:LocalizationManager.Instance}}"
                       ContentTemplate="{DataTemplate local:MainPage}"
                       Route="MainPage" />
-        <ShellContent Title="Комплексный корень"
+
+        <ShellContent Title="{Binding [ComplexTitle], Source={x:Static local:LocalizationManager.Instance}}"
                       ContentTemplate="{DataTemplate local:SecondPage}"
                       Route="SecondPage" />
-        <ShellContent Title="Настройки"
+
+        <ShellContent Title="{Binding [SettingsTitle], Source={x:Static local:LocalizationManager.Instance}}"
                       ContentTemplate="{DataTemplate local:SettingsPage}"
                       Route="SettingsPage" />
     </TabBar>

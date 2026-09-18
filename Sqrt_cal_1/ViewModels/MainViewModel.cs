@@ -7,7 +7,7 @@ namespace Sqrt_cal_1.ViewModels
     {
         private readonly SettingsServices _settings;
 
-        public MainViewModel(SettingsServices settings)
+        public MainViewModel(SettingsServices settings) 
         {
             _settings = settings;
         }

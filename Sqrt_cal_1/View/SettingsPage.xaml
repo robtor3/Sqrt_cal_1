@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sqrt_cal_1"
              x:Class="Sqrt_cal_1.SettingsPage"
-             Title="SettingsPage">
+             Title="{Binding [SettingsTitle], Source={x:Static local:LocalizationManager.Instance}}">
+
     <VerticalStackLayout Padding="20" Spacing="15">
 
-        <Label Text="Точность вычислений"
+        <Label Text="{Binding [Precision], Source={x:Static local:LocalizationManager.Instance}}"
                FontSize="18"
                FontAttributes="Bold" />
 
-        <Label Text="{Binding Precision, StringFormat='Знаков после запятой: {0}'}"
-               FontSize="16" />
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding [DecimalPlaces], Source={x:Static local:LocalizationManager.Instance}}" />
+                    <Span Text="{Binding Precision, StringFormat=' {0}'}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
         <Stepper Minimum="0"
                  Maximum="15"
                  Increment="1"
                  Value="{Binding Precision}" />
+
+        <Button Text="{Binding [SwitchLanguage], Source={x:Static local:LocalizationManager.Instance}}"
+                Clicked="OnSwitchLanguageClicked"
+                Margin="0,20,0,0" />
 
     </VerticalStackLayout>
 </ContentPage>

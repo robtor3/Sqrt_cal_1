@@ -19,6 +19,8 @@ namespace Sqrt_cal_1
                 ["Precision"] = "Точность вычислений",
                 ["DecimalPlaces"] = "Знаков после запятой:",
                 ["SwitchLanguage"] = "Switch to English",
+                ["EnterRootDegree"] = "Введите степень корня",
+                ["Calculate"] = "Вычислить",
             },
             ["en"] = new Dictionary<string, string>
             {
@@ -29,6 +31,8 @@ namespace Sqrt_cal_1
                 ["Precision"] = "Calculation precision",
                 ["DecimalPlaces"] = "Decimal places:",
                 ["SwitchLanguage"] = "Переключить на русский",
+                ["EnterRootDegree"] = "Enter root degree",
+                ["Calculate"] = "Calculate",
             }
         };
 

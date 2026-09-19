@@ -55,7 +55,7 @@
                         />
                 <!-- Оранжевый цвет (#FF8C00) -->
 
-            <Label Text="Она помогает с вычислениями" 
+            <Label Text="{Binding [HelperPhrase1], Source={x:Static local:LocalizationManager.Instance}}"
                    FontSize="12" 
                    TextColor="Black" 
                    HorizontalOptions="Center" 

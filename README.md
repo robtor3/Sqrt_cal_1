@@ -32,7 +32,7 @@
 
 ## 🏗 Архитектура
 
-Приложение построено на паттерне **MVVM (Model-View-ViewModel)**:
+Приложение построено на паттерне **MVVM (Model-View-ViewModel) (вместе с фреймворком CommunityToolkit.Mvvm)**:
 - **View:** XAML-страницы (`MainPage`, `SecondPage`, `SettingsPage`), отвечающие за отображение.
 - **ViewModel:** Логика представления (`MainViewModel`, `SecondViewModel`, `SettingsModel`), привязка данных, команды и логика вычислений.
 - **Resources:** Стили, шрифты и изображения.

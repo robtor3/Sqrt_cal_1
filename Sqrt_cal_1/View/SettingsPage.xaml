@@ -3,31 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Sqrt_cal_1"
              x:Class="Sqrt_cal_1.SettingsPage"
-             Title="{Binding [SettingsTitle], Source={x:Static local:LocalizationManager.Instance}}">
+             Title="{Binding [SettingsTitle], Source={x:Static local:LocalizationManager.Instance}}"
+             BackgroundColor="White">
+    <!-- 1. Белый фон всей страницы -->
 
-    <VerticalStackLayout Padding="20" Spacing="15">
+    <!-- 2. Grid делит экран: * (звездочка) = всё свободное место, Auto = размер по содержимому -->
+    <Grid RowDefinitions="*, Auto">
 
-        <Label Text="{Binding [Precision], Source={x:Static local:LocalizationManager.Instance}}"
-               FontSize="18"
-               FontAttributes="Bold" />
+        <!-- ВЕРХНЯЯ ЧАСТЬ: Настройки (центрированы по вертикали) -->
+        <VerticalStackLayout Grid.Row="0" Padding="20" Spacing="15" VerticalOptions="Center">
 
-        <Label FontSize="16">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="{Binding [DecimalPlaces], Source={x:Static local:LocalizationManager.Instance}}" />
-                    <Span Text="{Binding Precision, StringFormat=' {0}'}" />
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+            <Label Text="{Binding [Precision], Source={x:Static local:LocalizationManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold" TextColor="Black" />
 
-        <Stepper Minimum="0"
-                 Maximum="15"
-                 Increment="1"
-                 Value="{Binding Precision}" />
+            <Label FontSize="16" TextColor="Black">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding [DecimalPlaces], Source={x:Static local:LocalizationManager.Instance}}" TextColor="Black" />
+                        <!-- Выделим само число точности оранжевым цветом для красоты -->
+                        <Span Text="{Binding Precision, StringFormat=' {0}'}" TextColor="#FF8C00" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
-        <Button Text="{Binding [SwitchLanguage], Source={x:Static local:LocalizationManager.Instance}}"
-                Clicked="OnSwitchLanguageClicked"
-                Margin="0,20,0,0" />
+            <Stepper Minimum="0" Maximum="15" Increment="1"
+                Value="{Binding Precision}"
+                HorizontalOptions="Start"
+                WidthRequest="200"
+                HeightRequest="40"
+                BackgroundColor="#CCCCCC" />
 
-    </VerticalStackLayout>
+            <!-- 3. Кнопка в черно-оранжевом стиле -->
+            <Button Text="{Binding [SwitchLanguage], Source={x:Static local:LocalizationManager.Instance}}"
+                    Clicked="OnSwitchLanguageClicked"
+                    BackgroundColor="#FF8C00" 
+                    TextColor="White" 
+                    CornerRadius="10"
+                    Margin="0,20,0,0" />
+        </VerticalStackLayout>
+
+        <!-- НИЖНЯЯ ЧАСТЬ: Белка (автоматически прижимается к низу благодаря Grid.Row="1") -->
+        <VerticalStackLayout Grid.Row="1" HorizontalOptions="Center" Margin="0,0,0,40">
+                <!-- 5. Картинка белки. TintColor перекрашивает её в оранжевый (#FF8C00) -->
+            <Image Source="belka3.png" WidthRequest="80" HeightRequest="80"  />
+
+            <Label Text="Вы настраивайте, а она пока поест" TextColor="Black" FontSize="12" FontAttributes="Italic" HorizontalOptions="Center" Margin="0,10,0,0" />
+        </VerticalStackLayout>
+
+    </Grid>
 </ContentPage>

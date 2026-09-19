@@ -1,24 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Sqrt_cal_1"
-             xmlns:vm="clr-namespace:Sqrt_cal_1.ViewModels"
+             xmlns:viewmodels="clr-namespace:Sqrt_cal_1.ViewModels"
              x:Class="Sqrt_cal_1.MainPage"
-             x:DataType="vm:MainViewModel">
+             x:DataType="viewmodels:MainViewModel"
+             BackgroundColor="White">
+    <!-- 1. Белый фон всей страницы -->
 
-    <FlexLayout Direction="Column">
-        <Label Text="{Binding Title1}" />
+    <!-- 2. Сетка, делящая экран: * означает "занять всё свободное место", Auto означает "занять ровно столько, сколько нужно картинке" -->
+    <Grid RowDefinitions="*, Auto" Padding="20">
 
-        <Entry Text="{Binding UserText1}"
-               Placeholder="{Binding [EnterRootDegree], Source={x:Static local:LocalizationManager.Instance}}" />
+        <!-- ВЕРХНЯЯ ЧАСТЬ: Твой существующий функционал -->
+        <VerticalStackLayout Grid.Row="0" Spacing="15" VerticalOptions="Center">
+            <Label Text="{Binding Title1}" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="Black" 
+                   HorizontalOptions="Center"/>
 
-        <Entry Text="{Binding UserText}"
-               Placeholder="{Binding [EnterNumber], Source={x:Static local:LocalizationManager.Instance}}" />
+            <Entry Placeholder="Введите число" 
+                   Text="{Binding UserText}" 
+                   Keyboard="Numeric" 
+                   BackgroundColor="#F5F5F5" 
+                   TextColor="Black"
+                   PlaceholderColor="Gray"/>
 
-        <Button Text="{Binding [Calculate], Source={x:Static local:LocalizationManager.Instance}}"
-                Command="{Binding CalculateCommand}" />
+            <Entry Placeholder="Степень (например, 2 для корня)" 
+                   Text="{Binding UserText1}" 
+                   Keyboard="Numeric" 
+                   BackgroundColor="#F5F5F5" 
+                   TextColor="Black"
+                   PlaceholderColor="Gray"/>
 
-        <Label Text="{Binding Title2}" />
+            <Button Text="Посчитать" 
+                    Command="{Binding CalculateCommand}" 
+                    BackgroundColor="#FF8C00"
+                    TextColor="White" 
+                    CornerRadius="10"/>
 
-    </FlexLayout>
+                <Label Text="{Binding Title2}" 
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   TextColor="Black" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,0"/>
+        </VerticalStackLayout>
+
+        <!-- НИЖНЯЯ ЧАСТЬ: Белка -->
+        <VerticalStackLayout Grid.Row="1" HorizontalOptions="Center" Margin="0,0,0,30">
+            <!-- 3. Рамка вокруг белки: черная обводка, белый фон, скругленные углы -->
+                <Image Source="belka.png" 
+                       WidthRequest="80" 
+                       HeightRequest="80" 
+                        />
+                <!-- Оранжевый цвет (#FF8C00) -->
+
+            <Label Text="Она помогает с вычислениями" 
+                   FontSize="12" 
+                   TextColor="Black" 
+                   HorizontalOptions="Center" 
+                   Margin="0,10,0,0"
+                   FontAttributes="Italic"/>
+        </VerticalStackLayout>
+
+    </Grid>
 </ContentPage>

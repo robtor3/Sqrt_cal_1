@@ -36,3 +36,29 @@
 - **View:** XAML-страницы (`MainPage`, `SecondPage`, `SettingsPage`), отвечающие за отображение.
 - **ViewModel:** Логика представления (`MainViewModel`, `SecondViewModel`, `SettingsModel`), привязка данных, команды и логика вычислений.
 - **Resources:** Стили, шрифты и изображения.
+
+## 🚀 Установка и запуск
+
+1. **Клонируйте репозиторий:**
+   ```bash
+   git clone https://github.com/[ваш_username]/Sqrt_cal_1.git
+   cd Sqrt_cal_1
+   ```
+
+2. **Восстановите зависимости:**
+   ```bash
+   dotnet restore
+   ```
+
+3. **Запустите приложение под нужную платформу:**
+
+   **Windows:**
+   ```powershell
+   dotnet build -t:Run -f net8.0-windows10.0.19041.0
+   ```
+
+   **Android:**
+   ```bash
+   dotnet build -t:Run -f net8.0-android
+   ```
+

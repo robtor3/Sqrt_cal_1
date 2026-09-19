@@ -39,7 +39,7 @@
 
 ## 🚀 Установка и запуск
 
-1 **Установите MAUI**
+1. **Установите MAUI**
    ```bash
    dotnet workload install maui
    ```

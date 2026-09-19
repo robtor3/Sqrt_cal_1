@@ -19,21 +19,21 @@
                    TextColor="Black" 
                    HorizontalOptions="Center"/>
 
-            <Entry Placeholder="Введите число" 
-                   Text="{Binding UserText}" 
+            <Entry Placeholder="{Binding [EnterNumber], Source={x:Static local:LocalizationManager.Instance}}" 
+                   Text="{Binding UserText}"
                    Keyboard="Numeric" 
                    BackgroundColor="#F5F5F5" 
                    TextColor="Black"
                    PlaceholderColor="Gray"/>
 
-            <Entry Placeholder="Степень (например, 2 для корня)" 
+            <Entry Placeholder="{Binding [EnterRootDegree], Source={x:Static local:LocalizationManager.Instance}}" 
                    Text="{Binding UserText1}" 
                    Keyboard="Numeric" 
                    BackgroundColor="#F5F5F5" 
                    TextColor="Black"
                    PlaceholderColor="Gray"/>
 
-            <Button Text="Посчитать" 
+            <Button Text="{Binding [Calculate], Source={x:Static local:LocalizationManager.Instance}}" 
                     Command="{Binding CalculateCommand}" 
                     BackgroundColor="#FF8C00"
                     TextColor="White" 

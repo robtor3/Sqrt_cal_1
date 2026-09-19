@@ -33,7 +33,7 @@
                 HeightRequest="40"
                 BackgroundColor="#CCCCCC" />
 
-            <!-- 3. Кнопка в черно-оранжевом стиле -->
+            <!-- 3. Кнопка в оранжевом стиле -->
             <Button Text="{Binding [SwitchLanguage], Source={x:Static local:LocalizationManager.Instance}}"
                     Clicked="OnSwitchLanguageClicked"
                     BackgroundColor="#FF8C00" 

@@ -26,6 +26,9 @@ namespace Sqrt_cal_1
                 ["RootLabel"] = "Корень",
                 ["EnterRealPart"] = "Введите действительную часть числа",
                 ["EnterImagePart"] = "Введите мнимую часть числа",
+                ["HelperPhrase1"] = "Она помогает с вычислениями",
+                ["HelperPhrase2"] = "Ей тяжело, но она справится",
+                ["HelperPhrase3"] = "Вы настраивайте, а она пока поест",
             },
             ["en"] = new Dictionary<string, string>
             {
@@ -43,6 +46,9 @@ namespace Sqrt_cal_1
                 ["RootLabel"] = "Root",
                 ["EnterRealPart"] = "Enter the real part of the number",
                 ["EnterImagePart"] = "Enter the imaginary part of the number",
+                ["HelperPhrase1"] = "She helps with calculations",
+                ["HelperPhrase2"] = "It's hard for her, but she'll manage",
+                ["HelperPhrase3"] = "You adjust settings, and she'll grab a bite",
             }
         };
 

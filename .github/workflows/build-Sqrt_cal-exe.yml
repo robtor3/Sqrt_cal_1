@@ -4,11 +4,15 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - 'v1.0.0'
+      - 'v*'
 
 jobs:
   build:
     runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: ./Sqrt_cal_1
 
     steps:
       - name: Checkout code
@@ -31,13 +35,9 @@ jobs:
           -p:RuntimeIdentifierOverride=win10-x64
           -p:WindowsAppSDKSelfContained=true
 
-      - name: List output (debug)
-        run: |
-          Get-ChildItem -Path bin\Release -Recurse -Filter *.exe | Select-Object FullName
-
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: MAUI-Windows-App
-          path: bin/Release/net10.0-windows10.0.19041.0/win-x64/publish/
+          path: ./Sqrt_cal_1/bin/Release/net10.0-windows10.0.19041.0/win-x64/publish/
           if-no-files-found: error

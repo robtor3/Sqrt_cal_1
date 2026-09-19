@@ -1,4 +1,4 @@
-name: Build .NET MAUI EXE
+name: Squarrel
 
 on:
   workflow_dispatch: 
@@ -17,7 +17,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '10.0.401' 
+          dotnet-version: '10.0.x' 
 
       - name: Install MAUI Workload
         run: dotnet workload install maui
@@ -36,5 +36,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MAUI-Windows-App
-          path: bin/Release/net10.0-windows10.0.19041.0/win10-x64/publish/
+          path: bin/Release/net10.0-windows10.0.19041.0/win-x64/publish/
           if-no-files-found: error 

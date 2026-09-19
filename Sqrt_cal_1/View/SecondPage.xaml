@@ -5,24 +5,43 @@
              xmlns:vm="clr-namespace:Sqrt_cal_1.ViewModels"
              x:Class="Sqrt_cal_1.SecondPage"
              x:DataType="vm:SecondViewModel"
-             Title="{Binding [ComplexTitle], Source={x:Static local:LocalizationManager.Instance}}">
+             Title="{Binding [ComplexTitle], Source={x:Static local:LocalizationManager.Instance}}"
+             BackgroundColor="White">
+    <!-- 1. Белый фон всей страницы -->
 
-    <FlexLayout Direction="Column">
+    <!-- 2. Добавили x:Name и Padding для отступов от краев экрана -->
+    <FlexLayout x:Name="MainLayout" Direction="Column" Padding="20">
 
-        <Entry Text="{Binding UserText1}"
-               Placeholder="{Binding [EnterRootDegree], Source={x:Static local:LocalizationManager.Instance}}" />
+        <!-- 3. VerticalStackLayout группирует поля ввода. FlexLayout.Grow="1" заставляет этот блок занять всё свободное место, толкая белку вниз -->
+        <VerticalStackLayout Spacing="15" FlexLayout.Grow="1" VerticalOptions="Center">
 
-        <Entry Text="{Binding Real}"
-               Placeholder="{Binding [EnterRealPart], Source={x:Static local:LocalizationManager.Instance}}" />
+            <Entry Text="{Binding UserText1}"
+                   Placeholder="{Binding [EnterRootDegree], Source={x:Static local:LocalizationManager.Instance}}"
+                   BackgroundColor="#F5F5F5" TextColor="Black" PlaceholderColor="Gray" />
 
-        <Entry Text="{Binding Image}"
-               Placeholder="{Binding [EnterImagePart], Source={x:Static local:LocalizationManager.Instance}}" />
+            <Entry Text="{Binding Real}"
+                   Placeholder="{Binding [EnterRealPart], Source={x:Static local:LocalizationManager.Instance}}"
+                   BackgroundColor="#F5F5F5" TextColor="Black" PlaceholderColor="Gray" />
 
-        <Button Text="{Binding [Calculate], Source={x:Static local:LocalizationManager.Instance}}"
-                Command="{Binding CalculateCommand}" />
+            <Entry Text="{Binding Image}"
+                   Placeholder="{Binding [EnterImagePart], Source={x:Static local:LocalizationManager.Instance}}"
+                   BackgroundColor="#F5F5F5" TextColor="Black" PlaceholderColor="Gray" />
 
-        <Label Text="{Binding Title2}" />
+            <!-- 4. Оранжевая кнопка с белым текстом и скругленными углами -->
+            <Button Text="{Binding [Calculate], Source={x:Static local:LocalizationManager.Instance}}"
+                    Command="{Binding CalculateCommand}"
+                    BackgroundColor="#FF8C00" TextColor="White" CornerRadius="10" />
+
+            <Label Text="{Binding Title2}" 
+                   FontSize="18" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,10,0,0"/>
+        </VerticalStackLayout>
+
+        <!-- 5. НИЖНЯЯ ЧАСТЬ: Контейнер для белки -->
+        <VerticalStackLayout HorizontalOptions="Center" Margin="0,0,0,30">
+            <!-- Картинка белки. TintColor перекрашивает её в оранжевый (#FF8C00) -->
+            <Image Source="belka2.png" WidthRequest="80" HeightRequest="80" />
+            <Label Text="Ей тяжело, но она справится" TextColor="Black" FontSize="12" FontAttributes="Italic" HorizontalOptions="Center" Margin="0,10,0,0" />
+        </VerticalStackLayout>
 
     </FlexLayout>
-
 </ContentPage>

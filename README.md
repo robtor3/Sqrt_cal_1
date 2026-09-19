@@ -63,3 +63,37 @@
    dotnet build -f net8.0-android
    dotnet build -t:Run -f net8.0-android
    ```
+
+📂 Структура проекта
+
+   Sqrt_cal_1/
+   
+├── Platforms/                 # Платформенно-зависимый код (Android, Windows)
+
+├── Resources/                 # Изображения, шрифты, стили, иконки
+
+├── Services/                  # Логика настроек
+
+├── View/                      # XAML-представления (UI)
+
+│   ├── MainPage.xaml          # Экран с вводом и получением результата для действительных корней
+
+│   ├── SecondPage.xaml        # Экран с вводом и получением результата для комплексных корней
+
+│   └── SettingsPage.xaml      # Экран настроек
+
+├── ViewModels/                # Логика представления
+
+│   ├── MainViewModel.cs       # VM для экрана вычислений действительных корней
+
+│   ├── SecondViewModel.cs     # VM для экрана вычисления комплексных корней
+
+│   └── SettingsModel.cs       # Модель/VM настроек
+
+├── App.xaml                   # Ресурсы приложения
+
+├── AppShell.xaml              # Навигация (Shell)
+
+├── LocalizationManager.cs     # Менеджер локализации
+
+└── MauiProgram.cs             # Точка входа, DI-контейнер

@@ -42,7 +42,7 @@ jobs:
         run: |
           echo "$ANDROID_KEYSTORE" | base64 -d > android-release.keystore
 
-      - name: Publish signed APK
+       - name: Publish signed APK
         env:
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
@@ -51,11 +51,13 @@ jobs:
           dotnet publish -f net10.0-android -c Release
           -p:AndroidPackageFormat=apk
           -p:JavaSdkDirectory="$JAVA_HOME"
+          -p:RunAOTCompilation=false
+          -p:AndroidEnableProfiledAot=false
+          -p:JavaMaxHeapSize=2G
           -p:AndroidSigningKeyStore=android-release.keystore
           -p:AndroidSigningStorePass="$ANDROID_KEYSTORE_PASSWORD"
           -p:AndroidSigningKeyAlias="$ANDROID_KEY_ALIAS"
           -p:AndroidSigningKeyPass="$ANDROID_KEY_PASSWORD"
-          -v:diag
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

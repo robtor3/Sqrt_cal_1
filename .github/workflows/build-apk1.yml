@@ -41,10 +41,9 @@ jobs:
           ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
         run: |
           echo "$ANDROID_KEYSTORE" | base64 -d > android-release.keystore
-
+      
       - name: Publish signed APK
         env:
-          _JAVA_OPTIONS: "-Xmx4g"
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
@@ -59,7 +58,7 @@ jobs:
           -p:AndroidSigningStorePass="$ANDROID_KEYSTORE_PASSWORD"
           -p:AndroidSigningKeyAlias="$ANDROID_KEY_ALIAS"
           -p:AndroidSigningKeyPass="$ANDROID_KEY_PASSWORD"
-          -v:diag > build.log 2>&1
+          -v:diag
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

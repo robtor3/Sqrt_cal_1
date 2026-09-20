@@ -55,6 +55,7 @@ jobs:
           -p:AndroidSigningStorePass="$ANDROID_KEYSTORE_PASSWORD"
           -p:AndroidSigningKeyAlias="$ANDROID_KEY_ALIAS"
           -p:AndroidSigningKeyPass="$ANDROID_KEY_PASSWORD"
+          -v:diag
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

@@ -51,7 +51,7 @@
 		<AndroidSigningStorePass>111111</AndroidSigningStorePass>
 		<AndroidSigningKeyAlias>robtor-key</AndroidSigningKeyAlias>
 		<AndroidSigningKeyPass>111111</AndroidSigningKeyPass>
-		<AndroidPackageFormat>apk</AndroidPackageFormat>
+		
 	</PropertyGroup>
 
 	<ItemGroup>

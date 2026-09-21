@@ -50,8 +50,14 @@ namespace Sqrt_cal_1.ViewModels
             bool okUserText1 = double.TryParse(image, out double osnovanieImage);
             bool okUserText2 = int.TryParse(UserText1, out int stepen);
 
-            if (!okUserText|| !okUserText1|| !okUserText2)
+            if (!okUserText|| !okUserText1|| !okUserText2 )
 
+            {
+                _title2State = "error";
+                Title2 = LocalizationManager.Instance["UnknownSymbol"];
+                return;
+            }
+            if (stepen < 0)
             {
                 _title2State = "error";
                 Title2 = LocalizationManager.Instance["UnknownSymbol"];
